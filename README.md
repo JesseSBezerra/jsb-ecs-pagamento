@@ -1,2 +1,2 @@
 # jsb-ecs-pagamento
-atualizando readme foooi
+atualizando readme foooi.
