@@ -1,10 +1,18 @@
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+
   backend "s3" {
-    bucket         = "terraform-js-ecs-confirmador"     # Nome do seu bucket S3
-    key            = "ecs/terraform.tfstate"             # Caminho onde o estado será salvo
-    region         = "sa-east-1"                         # Região do bucket
+    bucket         = "terraform-js-ecs-confirmador"
+    key            = "ecs/terraform.tfstate"
+    region         = "sa-east-1"
   }
 }
+
 provider "aws" {
   region = var.region
 }
