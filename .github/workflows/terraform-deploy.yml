@@ -17,12 +17,13 @@ jobs:
       - name: Verificar acesso ao secret (parcial, seguro)
         run: echo "${{ secrets.AWS_ACCESS_KEY_ID }}" | cut -c1-4
   
-      - name: Configurar AWS Credentials
+      - name: Configurar AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: sa-east-1
 
       - name: Instalar Terraform
         uses: hashicorp/setup-terraform@v2
