@@ -1,3 +1,10 @@
+terraform {
+  backend "s3" {
+    bucket         = "terraform-js-ecs-confirmador"     # Nome do seu bucket S3
+    key            = "ecs/terraform.tfstate"             # Caminho onde o estado será salvo
+    region         = "sa-east-1"                         # Região do bucket
+  }
+}
 provider "aws" {
   region = var.region
 }
